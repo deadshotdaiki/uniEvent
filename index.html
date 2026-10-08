@@ -14,3 +14,24 @@
     ※予約人数を先行して確定させる兼ね合いで、詳細な場所や企画内容は調整中の段階です。確定次第、順次案内いたします。
   </p>
 </div>
+<!-- 応募フォーム -->
+<form id="applyForm">
+  <div style="margin-bottom: 15px;">
+    <label style="display:block; margin-bottom: 5px; font-weight: bold;">ハンドルネーム</label>
+    <input type="text" id="name" name="name" required placeholder="例：ねこうに太郎" style="width: 100%; padding: 8px; box-sizing: border-box;">
+  </div>
+  
+  <div style="margin-bottom: 15px;">
+    <label style="display:block; margin-bottom: 5px; font-weight: bold;">メールアドレス</label>
+    <input type="email" id="email" name="email" required placeholder="例：example@example.com" style="width: 100%; padding: 8px; box-sizing: border-box;">
+  </div>
+  
+  <div style="margin-bottom: 15px;">
+    <label style="display:block; margin-bottom: 5px; font-weight: bold;">電話番号</label>
+    <input type="tel" id="phone" name="phone" required placeholder="例：09012345678" style="width: 100%; padding: 8px; box-sizing: border-box;">
+  </div>
+
+  <button type="submit" id="submitBtn" style="width: 100%; padding: 12px; background: #e74c3c; color: white; border: none; border-radius: 4px; font-size: 1rem; cursor: pointer;">送信する</button>
+</form>
+
+<div id="statusMessage" style="margin-top: 15px; font-weight: bold; text-align: center;"></div>
