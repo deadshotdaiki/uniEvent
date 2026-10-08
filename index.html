@@ -78,13 +78,14 @@
     h1 {
       color: #b71c1c;
       text-align: center;
-      font-size: 0.98rem;
+      font-size: 0.92rem;
       margin-bottom: 12px;
       text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9), 0 0 8px rgba(255, 215, 0, 0.8);
       border-bottom: 2px dashed rgba(212, 175, 55, 0.8);
       padding-bottom: 8px;
       font-weight: 900;
-      white-space: nowrap;
+      /* 見切れていた原因の nowrap を外し、綺麗に収まるように調整 */
+      word-break: break-all;
     }
     .description {
       background: rgba(255, 255, 255, 0.45);
@@ -183,7 +184,7 @@
 <div id="snow-container"></div>
 
 <div class="container">
-  <h1>🎄 猫寝うにの あわんてんぼうクリスマス 🌟</h1>
+  <h1>🎄 猫寝うにのあわんてんぼうクリスマス 🌟</h1>
 
   <div class="description">
     <h2>【イベント開催概要】</h2>
