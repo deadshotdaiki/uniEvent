@@ -12,7 +12,7 @@
     }
     body {
       font-family: sans-serif;
-      background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('./bg.png');
+      background-image: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url('./bg.png');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -31,7 +31,7 @@
       border-radius: 50%;
       pointer-events: none;
       animation: fall linear infinite;
-      box-shadow: 0 0 6px #fff;
+      box-shadow: 0 0 8px #fff;
     }
     @keyframes fall {
       0% {
@@ -40,80 +40,42 @@
       }
       100% {
         transform: translateY(105vh) translateX(15px);
-        opacity: 0.4;
+        opacity: 0.3;
       }
     }
     /* 氷・ガラス風の最高級コンテナ */
     .container {
-      background: rgba(255, 255, 255, 0.4);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border: 2px solid rgba(255, 255, 255, 0.8);
-      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 2px solid rgba(255, 255, 255, 0.65);
+      border-radius: 24px;
       max-width: 400px;
       width: 100%;
-      padding: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.5);
+      padding: 18px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25), inset 0 0 25px rgba(255, 255, 255, 0.6);
       position: relative;
       z-index: 10;
     }
-    h1 {
-      color: #b71c1c;
-      text-align: center;
-      font-size: 0.95rem;
-      margin-bottom: 10px;
-      text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9), 0 0 8px rgba(255, 215, 0, 0.8);
-      border-bottom: 2px dashed rgba(212, 175, 55, 0.8);
-      padding-bottom: 6px;
-      font-weight: bold;
-      line-height: 1.4;
-    }
-    .description {
-      background: rgba(255, 255, 255, 0.55);
-      backdrop-filter: blur(4px);
-      border-left: 4px solid #d32f2f;
-      border-radius: 8px;
-      padding: 8px;
-      margin-bottom: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    .description h2 {
-      font-size: 0.8rem;
-      color: #1b5e20;
-      margin-bottom: 4px;
-      font-weight: bold;
-    }
-    .info-list {
-      list-style: none;
-      line-height: 1.4;
-      font-size: 0.75rem;
-      color: #111;
-    }
-    .info-list li span {
-      font-weight: bold;
-      color: #c62828;
-    }
-    .badge {
-      display: inline-block;
-      background: rgba(46, 125, 50, 0.85);
-      color: #fff;
-      font-size: 0.62rem;
-      padding: 1px 5px;
-      border-radius: 4px;
-    }
-    .note {
-      font-size: 0.68rem;
-      color: #222;
-      margin-top: 4px;
-      padding-top: 4px;
-      border-top: 1px dotted rgba(0,0,0,0.2);
-    }
-    .form-group {
-      margin-bottom: 6px;
-    }
-    label {
+    .container::before {
+      content: "❄️ Crystal X'mas Night ❄️";
       display: block;
-      margin-bottom: 2px;
+      text-align: center;
+      font-size: 0.65rem;
       font-weight: bold;
-      color: #1b5e20;
-      font-size: 0.75
+      color: #fff;
+      background: linear-gradient(135deg, #ff5252, #e53935);
+      padding: 3px 12px;
+      border-radius: 20px;
+      width: fit-content;
+      margin: 0 auto 10px auto;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      letter-spacing: 0.1em;
+    }
+    h1 {
+      color: #c62828;
+      text-align: center;
+      font-size: 0.92rem;
+      margin-bottom: 12px;
+      text-shadow: 0 1px 4px rgba(255, 255, 255, 0.9), 0 0 10px rgba(255, 215, 0, 0.9);
+      border-bottom: 2px dashed rgba
