@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>猫寝うにのあわてんぼうクリスマスイベント</title>
+  <title>猫寝うにのあわんてんぼうクリスマス</title>
   <style>
     * {
       box-sizing: border-box;
@@ -12,7 +12,7 @@
     }
     body {
       font-family: sans-serif;
-      background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('./bg.png');
+      background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url('./bg.png');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -42,13 +42,15 @@
       }
     }
     .container {
-      background: rgba(255, 255, 255, 0.92);
-      border: 3px solid #d4af37;
-      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border: 3px solid #ffd700;
+      border-radius: 20px;
       max-width: 420px;
       width: 100%;
-      padding: 14px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      padding: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
       position: relative;
       z-index: 10;
     }
@@ -56,16 +58,17 @@
       color: #c62828;
       text-align: center;
       font-size: 1.15rem;
-      margin-bottom: 10px;
-      border-bottom: 2px dashed #d4af37;
+      margin-bottom: 12px;
+      text-shadow: 0 2px 4px rgba(255,255,255,0.9);
+      border-bottom: 2px dashed #ffd700;
       padding-bottom: 6px;
       font-weight: bold;
     }
     .description {
-      background: rgba(245, 245, 245, 0.9);
+      background: rgba(255, 255, 255, 0.75);
       border-left: 4px solid #c62828;
-      padding: 8px;
-      border-radius: 6px;
+      padding: 10px;
+      border-radius: 8px;
       margin-bottom: 10px;
     }
     .description h2 {
@@ -92,13 +95,13 @@
     }
     .note {
       font-size: 0.7rem;
-      color: #444;
+      color: #333;
       margin-top: 4px;
       padding-top: 4px;
       border-top: 1px dotted #ccc;
     }
     .form-group {
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
     label {
       display: block;
@@ -106,138 +109,30 @@
       font-weight: bold;
       color: #1b5e20;
       font-size: 0.78rem;
+      text-shadow: 0 1px 2px rgba(255,255,255,0.8);
     }
     input {
       width: 100%;
-      padding: 7px 8px;
-      background: #ffffff;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 0.85rem;
+      padding: 8px 10px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #d4af37;
+      border-radius: 8px;
+      font-size: 0.9rem;
     }
     button {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       background: linear-gradient(135deg, #c62828, #2e7d32);
       color: #fff;
       border: none;
-      border-radius: 8px;
-      font-size: 0.95rem;
+      border-radius: 10px;
+      font-size: 1rem;
       font-weight: bold;
       cursor: pointer;
-      margin-top: 6px;
+      margin-top: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
     #statusMessage {
       margin-top: 6px;
       font-weight: bold;
-      text-align: center;
-      font-size: 0.8rem;
-      word-break: break-all;
-    }
-  </style>
-</head>
-<body>
-
-<div id="snow-container"></div>
-
-<div class="container">
-  <h1>🌟 魔法のクリスマスナイト 🎄</h1>
-
-  <div class="description">
-    <h2>【イベント開催概要】</h2>
-    <ul class="info-list">
-      <li><span>開催日：</span>11/22</li>
-      <li><span>時間：</span>14:00〜19:00（予定）</li>
-      <li><span>場所：</span>都内某所 <span class="badge">レンタルスペースでまったり！</span></li>
-      <li><span>金額：</span>5,000円以内（参加費＋食費込み）</li>
-      <li><span>内容：</span>ご飯やお菓子も持ち込み！事前買い出し班あり♪</li>
-    </ul>
-    <p class="note">
-      ※予約人数の確定を進める段階のため詳細は順次案内します！
-    </p>
-  </div>
-
-  <form id="applyForm">
-    <div class="form-group">
-      <label for="name">ハンドルネーム</label>
-      <input type="text" id="name" name="name" required placeholder="例：ねこうに太郎">
-    </div>
-    
-    <div class="form-group">
-      <label for="email">メールアドレス</label>
-      <input type="email" id="email" name="email" required placeholder="例：example@example.com">
-    </div>
-    
-    <div class="form-group">
-      <label for="phone">電話番号</label>
-      <input type="tel" id="phone" name="phone" required placeholder="例：09012345678">
-    </div>
-
-    <button type="submit" id="submitBtn">🎁 予約を申し込む</button>
-  </form>
-
-  <div id="statusMessage"></div>
-</div>
-
-<script>
-  const snowContainer = document.getElementById('snow-container');
-  const snowCount = 25;
-  for (let i = 0; i < snowCount; i++) {
-    const snowflake = document.createElement('div');
-    snowflake.classList.add('snowflake');
-    snowflake.style.left = Math.random() * 100 + 'vw';
-    snowflake.style.opacity = Math.random();
-    const size = Math.random() * 5 + 3 + 'px';
-    snowflake.style.width = size;
-    snowflake.style.height = size;
-    snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
-    snowflake.style.animationDelay = Math.random() * 5 + 's';
-    snowContainer.appendChild(snowflake);
-  }
-
-  const form = document.getElementById('applyForm');
-  const submitBtn = document.getElementById('submitBtn');
-  const statusMessage = document.getElementById('statusMessage');
-
-  const GAS_URL = 'https://script.google.com/macros/s/AKfycbxqCs-9G3mCfQhPL9O0HROI01AMgKGCTs_sf6uNSzqonbOYoFK_PI3TP62-BUEU7-ET/exec';
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    submitBtn.disabled = true;
-    submitBtn.textContent = '送信中...';
-    statusMessage.textContent = '';
-
-    const payload = {
-      name: form.name.value,
-      email: form.email.value,
-      phone: form.phone.value
-    };
-
-    try {
-      const response = await fetch(GAS_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify(payload)
-      });
-      const result = await response.json();
-
-      if (result.result === 'success') {
-        statusMessage.style.color = '#1b5e20';
-        statusMessage.textContent = '応募が完了しました！';
-        form.reset();
-      } else {
-        throw new Error(result.error || 'GAS側でエラーが発生しました');
-      }
-    } catch (err) {
-      statusMessage.style.color = '#c62828';
-      statusMessage.textContent = '送信失敗: ' + err.message;
-      console.error(err);
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = '🎁 予約を申し込む';
-    }
-  });
-</script>
-
-</body>
-</html>
+      
