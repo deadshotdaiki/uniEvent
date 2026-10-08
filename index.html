@@ -12,11 +12,11 @@
     }
     body {
       font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
-      background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('./bg.png');
+      background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('./bg.png');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      color: #333;
+      color: #2c3e50;
       min-height: 100vh;
       display: flex;
       justify-content: center;
@@ -24,186 +24,128 @@
       padding: 20px 10px;
     }
     .container {
-      background: rgba(255, 255, 255, 0.93);
-      border: 3px solid #d4af37;
-      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 2px solid rgba(212, 175, 55, 0.8);
+      border-radius: 20px;
       max-width: 500px;
       width: 100%;
       padding: 25px 20px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(4px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
     h1 {
       color: #b71c1c;
       text-align: center;
-      font-size: 1.5rem;
-      margin-bottom: 20px;
+      font-size: 1.4rem;
+      margin-bottom: 18px;
       border-bottom: 2px dashed #d4af37;
       padding-bottom: 10px;
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
     }
     .description {
-      background: #fff8f8;
+      background: rgba(255, 248, 248, 0.75);
       border-left: 4px solid #b71c1c;
       padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 25px;
+      border-radius: 10px;
+      margin-bottom: 20px;
     }
     .description h2 {
-      font-size: 1.1rem;
-      color: #2e7d32;
+      font-size: 1.05rem;
+      color: #1b5e20;
       margin-bottom: 10px;
     }
     .info-list {
       list-style: none;
       line-height: 1.8;
-      font-size: 0.95rem;
-      margin-bottom: 12px;
+      font-size: 0.92rem;
+      margin-bottom: 10px;
     }
     .info-list li span {
       font-weight: bold;
       color: #b71c1c;
     }
+    .badge {
+      display: inline-block;
+      background: #1b5e20;
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 12px;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
     .note {
-      font-size: 0.82rem;
-      color: #666;
+      font-size: 0.8rem;
+      color: #444;
       line-height: 1.4;
       margin-top: 10px;
       padding-top: 8px;
-      border-top: 1px solid #e0e0e0;
+      border-top: 1px dotted #ccc;
     }
     .form-group {
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
     label {
       display: block;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
       font-weight: bold;
-      color: #2e7d32;
-      font-size: 0.9rem;
+      color: #1b5e20;
+      font-size: 0.88rem;
     }
     input {
       width: 100%;
       padding: 10px 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      font-size: 0.95rem;
       outline: none;
     }
     input:focus {
       border-color: #b71c1c;
-      box-shadow: 0 0 5px rgba(183, 28, 28, 0.3);
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 0 6px rgba(183, 28, 28, 0.4);
     }
     button {
       width: 100%;
       padding: 14px;
-      background: linear-gradient(135deg, #b71c1c, #d32f2f);
+      background: linear-gradient(135deg, #b71c1c, #2e7d32);
       color: #fff;
       border: 1px solid #d4af37;
-      border-radius: 8px;
-      font-size: 1.1rem;
+      border-radius: 10px;
+      font-size: 1.05rem;
       font-weight: bold;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(183, 28, 28, 0.3);
-      transition: background 0.2s;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.1s, opacity 0.2s;
+    }
+    button:active {
+      transform: scale(0.98);
     }
     button:disabled {
-      background: #ccc;
-      border-color: #ccc;
+      background: #aaa;
+      border-color: #aaa;
       cursor: not-allowed;
     }
     #statusMessage {
-      margin-top: 15px;
+      margin-top: 12px;
       font-weight: bold;
       text-align: center;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
 
 <div class="container">
-  <h1>🎄 猫寝うにのあわてんぼうクリスマスイベント 🎄</h1>
+  <h1>🎄 猫寝うにのあわてんぼうクリスマス 🎁</h1>
 
   <div class="description">
     <h2>【イベント開催概要】</h2>
     <ul class="info-list">
       <li><span>開催日：</span>11/22</li>
       <li><span>時間：</span>14:00〜19:00（予定）</li>
-      <li><span>場所：</span>都内某所（レンタルスペースでまったり開催！）</li>
-      <li><span>金額：</span>5,000円以内（参加費+食費込み）</li>
-      <li><span>内容：</span>ご飯やお菓子もみんなで持ち込み！事前に買い出し班も動きます♪</li>
-    </ul>
-    <p class="note">
-      ※予約人数を先行して確定させる兼ね合いで、詳細な場所や企画内容は調整中の段階です。確定次第、順次ご案内いたします。
-    </p>
-  </div>
-
-  <form id="applyForm">
-    <div class="form-group">
-      <label for="name">ハンドルネーム</label>
-      <input type="text" id="name" name="name" required placeholder="例：ねこうに太郎">
-    </div>
-    
-    <div class="form-group">
-      <label for="email">メールアドレス</label>
-      <input type="email" id="email" name="email" required placeholder="例：example@example.com">
-    </div>
-    
-    <div class="form-group">
-      <label for="phone">電話番号</label>
-      <input type="tel" id="phone" name="phone" required placeholder="例：09012345678">
-    </div>
-
-    <button type="submit" id="submitBtn">予約を申し込む</button>
-  </form>
-
-  <div id="statusMessage"></div>
-</div>
-
-<script>
-  const form = document.getElementById('applyForm');
-  const submitBtn = document.getElementById('submitBtn');
-  const statusMessage = document.getElementById('statusMessage');
-
-  const GAS_URL = 'https://script.google.com/macros/s/AKfycbxqCs-9G3mCfQhPL9O0HROI01AMgKGCTs_sf6uNSzqonbOYoFK_PI3TP62-BUEU7-ET/exec';
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    submitBtn.disabled = true;
-    submitBtn.textContent = '送信中...';
-    statusMessage.textContent = '';
-
-    const payload = {
-      name: form.name.value,
-      email: form.email.value,
-      phone: form.phone.value
-    };
-
-    try {
-      const response = await fetch(GAS_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify(payload)
-      });
-      const result = await response.json();
-
-      if (result.result === 'success') {
-        statusMessage.style.color = '#2e7d32';
-        statusMessage.textContent = '応募が完了しました！ありがとうございます。';
-        form.reset();
-      } else {
-        throw new Error(result.error);
-      }
-    } catch (err) {
-      statusMessage.style.color = '#b71c1c';
-      statusMessage.textContent = '送信に失敗しました。もう一度お試しください。';
-      console.error(err);
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = '予約を申し込む';
-    }
-  });
-</script>
-
-</body>
-</html>
+      <li><span>場所：</span>都内某所 <span class="badge">レンタルスペースでまったり！</span></li>
+      <li><span>金額：</span>5,000円以内（参加費＋食費込み）</li>
+      <li><span>内容：</span>ご飯やお菓子もみんなで持ち込み！事前に買い出し班も動きます♪
