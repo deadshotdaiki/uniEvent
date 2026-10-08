@@ -17,47 +17,46 @@
       background-position: center;
       background-attachment: fixed;
       min-height: 100vh;
-      padding: 15px 10px;
+      padding: 10px;
       display: flex;
       justify-content: center;
-      align-items: flex-start;
+      align-items: center;
     }
     .container {
-      background: rgba(255, 255, 255, 0.82);
+      background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       border: 2px solid #d4af37;
       border-radius: 16px;
-      max-width: 450px;
+      max-width: 420px;
       width: 100%;
-      padding: 16px;
+      padding: 12px 14px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      margin-top: 10px;
     }
     h1 {
       color: #c62828;
       text-align: center;
-      font-size: 1.2rem;
-      margin-bottom: 12px;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
       border-bottom: 2px dashed #d4af37;
-      padding-bottom: 6px;
+      padding-bottom: 4px;
     }
     .description {
-      background: rgba(255, 255, 255, 0.75);
+      background: rgba(255, 255, 255, 0.8);
       border-left: 4px solid #c62828;
-      padding: 10px;
-      border-radius: 8px;
-      margin-bottom: 12px;
+      padding: 8px;
+      border-radius: 6px;
+      margin-bottom: 8px;
     }
     .description h2 {
-      font-size: 0.95rem;
+      font-size: 0.85rem;
       color: #1b5e20;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
     .info-list {
       list-style: none;
-      line-height: 1.5;
-      font-size: 0.85rem;
+      line-height: 1.4;
+      font-size: 0.78rem;
     }
     .info-list li span {
       font-weight: bold;
@@ -67,52 +66,52 @@
       display: inline-block;
       background: #2e7d32;
       color: #fff;
-      font-size: 0.7rem;
-      padding: 1px 6px;
+      font-size: 0.65rem;
+      padding: 1px 5px;
       border-radius: 4px;
     }
     .note {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       color: #444;
-      margin-top: 6px;
-      padding-top: 6px;
+      margin-top: 4px;
+      padding-top: 4px;
       border-top: 1px dotted #ccc;
     }
     .form-group {
-      margin-bottom: 10px;
+      margin-bottom: 6px;
     }
     label {
       display: block;
-      margin-bottom: 3px;
+      margin-bottom: 2px;
       font-weight: bold;
       color: #1b5e20;
-      font-size: 0.85rem;
+      font-size: 0.78rem;
     }
     input {
       width: 100%;
-      padding: 8px;
+      padding: 6px 8px;
       background: #ffffff;
       border: 1px solid #ccc;
       border-radius: 6px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
     button {
       width: 100%;
-      padding: 12px;
+      padding: 10px;
       background: linear-gradient(135deg, #c62828, #2e7d32);
       color: #fff;
       border: none;
       border-radius: 8px;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: bold;
       cursor: pointer;
-      margin-top: 6px;
+      margin-top: 4px;
     }
     #statusMessage {
-      margin-top: 8px;
+      margin-top: 6px;
       font-weight: bold;
       text-align: center;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
     }
   </style>
 </head>
@@ -146,4 +145,38 @@
       <input type="email" id="email" name="email" required placeholder="例：example@example.com">
     </div>
     
-    <div
+    <div class="form-group">
+      <label for="phone">電話番号</label>
+      <input type="tel" id="phone" name="phone" required placeholder="例：09012345678">
+    </div>
+
+    <button type="submit" id="submitBtn">🎁 予約を申し込む</button>
+  </form>
+
+  <div id="statusMessage"></div>
+</div>
+
+<script>
+  const form = document.getElementById('applyForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const statusMessage = document.getElementById('statusMessage');
+
+  const GAS_URL = 'https://script.google.com/macros/s/AKfycbxqCs-9G3mCfQhPL9O0HROI01AMgKGCTs_sf6uNSzqonbOYoFK_PI3TP62-BUEU7-ET/exec';
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = '送信中...';
+    statusMessage.textContent = '';
+
+    const payload = {
+      name: form.name.value,
+      email: form.email.value,
+      phone: form.phone.value
+    };
+
+    try {
+      const response = await fetch(GAS_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(
