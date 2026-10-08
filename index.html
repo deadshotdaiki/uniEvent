@@ -1,37 +1,22 @@
-<!-- 1. タイトル -->
-<h1>猫寝うにのあわてんぼうクリスマスイベント</h1>
-
-<!-- 1. 概要・告知内容 -->
-<div class="description">
-  <p><strong>【イベント開催概要】</strong></p>
-  <ul style="list-style: none; padding-left: 0; margin: 10px 0;">
-    <li>・開催日：11/22</li>
-    <li>・時間：14:00〜19:00（予定）</li>
-    <li>・場所：都内某所</li>
-    <li>・金額：5,000円以内（参加費+食費込み）</li>
-  </ul>
-  <p style="font-size: 0.85rem; color: #666; margin-top: 10px; line-height: 1.4;">
-    ※予約人数を先行して確定させる兼ね合いで、詳細な場所や企画内容は調整中の段階です。確定次第、順次案内いたします。
-  </p>
-</div>
-<!-- 応募フォーム -->
-<form id="applyForm">
-  <div style="margin-bottom: 15px;">
-    <label style="display:block; margin-bottom: 5px; font-weight: bold;">ハンドルネーム</label>
-    <input type="text" id="name" name="name" required placeholder="例：ねこうに太郎" style="width: 100%; padding: 8px; box-sizing: border-box;">
-  </div>
-  
-  <div style="margin-bottom: 15px;">
-    <label style="display:block; margin-bottom: 5px; font-weight: bold;">メールアドレス</label>
-    <input type="email" id="email" name="email" required placeholder="例：example@example.com" style="width: 100%; padding: 8px; box-sizing: border-box;">
-  </div>
-  
-  <div style="margin-bottom: 15px;">
-    <label style="display:block; margin-bottom: 5px; font-weight: bold;">電話番号</label>
-    <input type="tel" id="phone" name="phone" required placeholder="例：09012345678" style="width: 100%; padding: 8px; box-sizing: border-box;">
-  </div>
-
-  <button type="submit" id="submitBtn" style="width: 100%; padding: 12px; background: #e74c3c; color: white; border: none; border-radius: 4px; font-size: 1rem; cursor: pointer;">送信する</button>
-</form>
-
-<div id="statusMessage" style="margin-top: 15px; font-weight: bold; text-align: center;"></div>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>猫寝うにのあわてんぼうクリスマスイベント</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Sans-serif;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('./bg.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      justify-content:
