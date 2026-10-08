@@ -112,13 +112,14 @@
       font-weight: bold;
       text-align: center;
       font-size: 0.8rem;
+      word-break: break-all;
     }
   </style>
 </head>
 <body>
 
 <div class="container">
-  <h1>🎄 猫寝うにのあわてんぼうクリスマス 🎁</h1>
+  <h1>猫寝うにのあわてんぼうクリスマス</h1>
 
   <div class="description">
     <h2>【イベント開催概要】</h2>
@@ -150,7 +151,7 @@
       <input type="tel" id="phone" name="phone" required placeholder="例：09012345678">
     </div>
 
-    <button type="submit" id="submitBtn">🎁 予約を申し込む</button>
+    <button type="submit" id="submitBtn">予約を申し込む</button>
   </form>
 
   <div id="statusMessage"></div>
@@ -179,4 +180,27 @@
       const response = await fetch(GAS_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify(
+        body: JSON.stringify(payload)
+      });
+      const result = await response.json();
+
+      if (result.result === 'success') {
+        statusMessage.style.color = '#1b5e20';
+        statusMessage.textContent = '応募が完了しました！';
+        form.reset();
+      } else {
+        throw new Error(result.error || 'GAS側でエラーが発生しました');
+      }
+    } catch (err) {
+      statusMessage.style.color = '#c62828';
+      statusMessage.textContent = '送信失敗: ' + err.message;
+      console.error(err);
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = '予約を申し込む';
+    }
+  });
+</script>
+
+</body>
+</html>
